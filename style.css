@@ -1,0 +1,287 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Orbitron',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(
+        135deg,
+        #2b0a3d 0%,
+        #5a0f4d 20%,
+        #8b0f5c 35%,
+        #ff4da6 55%,
+        #ffb347 75%,
+        #6a5acd 100%
+    );
+    color:white;
+    position:relative;
+}
+
+/* Animated Background Blobs */
+
+.background span{
+    position:absolute;
+    display:block;
+    width:380px;
+    height:380px;
+    border-radius:50%;
+    filter:blur(110px);
+    animation:float 10s infinite alternate ease-in-out;
+}
+
+.background span:nth-child(1){
+    background:#ff1493;
+    top:-50px;
+    left:-50px;
+}
+
+.background span:nth-child(2){
+    background:#ffd700;
+    bottom:-80px;
+    right:-80px;
+}
+
+.background span:nth-child(3){
+    background:#8a2be2;
+    top:40%;
+    left:65%;
+}
+
+.background span:nth-child(4){
+    background:#00bfff;
+    bottom:20%;
+    left:20%;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(-40px) scale(1);
+    }
+    to{
+        transform:translateY(40px) scale(1.15);
+    }
+}
+
+/* Main Container */
+
+.container{
+    width:90%;
+    max-width:950px;
+    text-align:center;
+    z-index:2;
+}
+
+h1{
+    margin-bottom:25px;
+    font-size:2.5rem;
+    color:white;
+
+    text-shadow:
+    0 0 10px #fff,
+    0 0 20px #ff69b4,
+    0 0 40px #ffd700;
+}
+
+/* Glassmorphism Cards */
+
+.clock-card,
+.stopwatch-card{
+
+    backdrop-filter:blur(25px);
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    padding:30px;
+
+    margin:20px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 10px 40px rgba(255,20,147,0.35),
+    0 0 60px rgba(255,215,0,0.15);
+
+    transition:0.5s;
+
+    transform-style:preserve-3d;
+}
+
+.clock-card:hover,
+.stopwatch-card:hover{
+
+    transform:
+    rotateX(8deg)
+    rotateY(-8deg)
+    scale(1.03);
+
+    box-shadow:
+    0 15px 50px rgba(255,20,147,0.5),
+    0 0 80px rgba(255,215,0,0.3);
+}
+
+/* Section Titles */
+
+h2{
+    margin-bottom:15px;
+    color:white;
+    text-shadow:0 0 15px #ff69b4;
+}
+
+/* Clock */
+
+#clock{
+    font-size:4rem;
+    font-weight:bold;
+    margin-top:15px;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #ff69b4,
+    0 0 35px #ff1493,
+    0 0 50px #ffd700;
+}
+
+#date{
+    margin-top:10px;
+    font-size:1.2rem;
+    color:#f5f5f5;
+}
+
+/* Stopwatch */
+
+#display{
+    font-size:3rem;
+    margin:20px 0;
+
+    color:white;
+
+    text-shadow:
+    0 0 10px #ffffff,
+    0 0 20px #ff69b4,
+    0 0 40px #ffd700;
+}
+
+/* Buttons */
+
+.buttons{
+    margin-top:20px;
+}
+
+.buttons button{
+
+    padding:14px 28px;
+
+    margin:10px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:linear-gradient(
+        45deg,
+        #ff1493,
+        #ff69b4,
+        #ffd700
+    );
+
+    box-shadow:
+    0 0 15px rgba(255,20,147,0.8),
+    0 0 30px rgba(255,215,0,0.6);
+
+    transition:0.3s;
+}
+
+.buttons button:hover{
+
+    transform:translateY(-5px) scale(1.08);
+
+    box-shadow:
+    0 0 25px #ff1493,
+    0 0 50px #ffd700;
+}
+
+/* Lap Records */
+
+#laps{
+    list-style:none;
+    margin-top:20px;
+    max-height:180px;
+    overflow-y:auto;
+}
+
+#laps li{
+
+    padding:12px;
+
+    margin:8px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,0.12);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    box-shadow:
+    0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:rgba(255,255,255,0.1);
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        #ff1493,
+        #ffd700
+    );
+    border-radius:10px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    #clock{
+        font-size:2.8rem;
+    }
+
+    #display{
+        font-size:2rem;
+    }
+
+    .buttons button{
+        padding:12px 20px;
+        font-size:14px;
+    }
+}
